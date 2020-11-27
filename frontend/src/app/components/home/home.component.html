@@ -1,0 +1,20 @@
+<app-header (onClickCat)="changeCat($event)" [currentCat]="blogsCat"></app-header>
+<div *ngIf="blogs.length > 0">
+    <app-banner [featuredBlogs]="blogs" [currentCat]="blogsCat"></app-banner>
+    <section class="blogs-with-sidebar">
+        <div class="container">
+            <div class="row">
+                <div class="col-8 blog-col">
+                    <app-blogs [allBlogs]="blogs" [cat]="blogsCat"></app-blogs>
+                </div>
+                <div class="col-4 side-col">
+                    <app-sidebar></app-sidebar>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="spinner-border" role="status" *ngIf="blogs.length < 1">
+    <span class="sr-only">Loading...</span>
+</div>
+<!-- <app-footer></app-footer> -->

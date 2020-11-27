@@ -1,0 +1,20 @@
+<section class="blogs">
+    <div class="row">
+        <div class="col-6" *ngFor="let blog of allBlogs; let i = index">
+            <div class="card-wrap">
+                <a [href]="blog['url']" target="_blank">
+                    <div class="img-wrap">
+                        <img [src]="blog['urlToImage']" [alt]="blog['title']">
+                        <div class="blog-info">
+                            <span class="cat">{{ cat }}</span>
+                            <span class="date">{{ (blog['publishedAt']) | blogDate }}</span>
+                        </div>
+                    </div>
+                </a>
+                <h5>{{ blog['title'] }}</h5>
+                <p>{{ blog['content'] }}</p>
+                <a [href]="blog['url']" target="_blank">Read More</a>
+            </div>
+        </div>
+    </div>
+</section>

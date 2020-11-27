@@ -1,0 +1,52 @@
+{
+    "blogs": [
+        {
+            "title": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+            "description": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+            "publishedAt": "20-10-2019",
+            "urlToImage": "https://picsum.photos/800/800?random=1",
+            "category": "Travel",
+            "visible": true
+        },
+        {
+            "title": "It is a long established fact that a reader will be distracted by the readable content",
+            "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.",
+            "publishedAt": "21-10-2019",
+            "urlToImage": "https://picsum.photos/800/800?random=2",
+            "category": "Travel",
+            "visible": true
+        },
+        {
+            "title": "There are many variations of passages of Lorem Ipsum available",
+            "description": "If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
+            "publishedAt": "18-10-2019",
+            "urlToImage": "https://picsum.photos/800/800?random=3",
+            "category": "Fashion",
+            "visible": true
+        },
+        {
+            "title": "Section 1.10.32 of de Finibus Bonorum et Malorum",
+            "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+            "publishedAt": "18-10-2019",
+            "urlToImage": "https://picsum.photos/800/800?random=4",
+            "category": "Fashion",
+            "visible": true
+        },
+        {
+            "title": "At vero eos et accusamus et iusto odio dignissimos ducimus",
+            "description": "qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+            "publishedAt": "18-10-2019",
+            "urlToImage": "https://picsum.photos/800/800?random=5",
+            "category": "Tech",
+            "visible": true
+        },
+        {
+            "title": "On the other hand, we denounce with righteous indignation",
+            "description": "In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business.",
+            "publishedAt": "18-10-2019",
+            "urlToImage": "https://picsum.photos/800/800?random=6",
+            "category": "Tech",
+            "visible": true
+        }
+    ]
+}

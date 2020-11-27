@@ -1,0 +1,18 @@
+<section class="banner">
+    <div class="slider-wrap">
+        <ngx-slick-carousel class="slider-wrap" [config]="slideConfig">
+            <div ngxSlickItem class="slide-item" *ngFor="let blog of featuredBlogs.slice(0, 6)">
+                <a [href]="blog['url']" target="_blank">
+                    <div class="slide-img">
+                        <img [src]="blog['urlToImage']" alt="">
+                    </div>
+                    <div class="slide-content">
+                        <p>Featured &#9670; <span class="cat">{{ currentCat }}</span></p>
+                        <h5>{{ blog['title'] }}</h5>
+                        <p><span class="date">{{ blog['publishedAt'] | blogDate }}</span></p>
+                    </div>
+                </a>
+            </div>
+        </ngx-slick-carousel>
+    </div>
+</section>

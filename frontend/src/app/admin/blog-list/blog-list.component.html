@@ -1,0 +1,47 @@
+<section class="main">
+  <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#" routerLink="/admin/dashboard">Dashboard</a></li>
+        <li class="breadcrumb-item">Blogs</li>
+      </ol>
+  </nav>
+  <div class="table-wrap">
+    <h5>Blogs</h5>
+    <button type="button" routerLink="/admin/add-blog" class="btn btn-primary">Add New Blog <i class="fa fa-plus" aria-hidden="true"></i></button>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Image</th>
+          <th scope="col">Title</th>
+          <th scope="col">Category</th>
+          <th scope="col">Publish Date</th>
+          <th scope="col">Status</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let blog of blogs">
+          <td>
+            <img [src]="blog.urlToImage" [alt]="blog.title">
+          </td>
+          <td>{{ blog.title }}</td>
+          <td>{{ blog.category }}</td>
+          <td>{{ blog.publishedAt }}</td>
+          <td>{{ blog.visible ? 'Active':'Inactive' }}</td>
+          <td>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" appMenuToggle>
+                Action
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Edit</a>
+                <a class="dropdown-item" href="#">Inactive</a>
+                <a class="dropdown-item" href="#">Delete</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+  </div>
+</section>

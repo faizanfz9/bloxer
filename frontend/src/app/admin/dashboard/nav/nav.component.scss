@@ -1,0 +1,19 @@
+.navbar {
+    .navbar-brand {
+        color: #fff;
+    }
+    .navbar-nav {
+        li {
+            a {
+                color: #fff;
+            }
+            .dropdown-menu {
+                left: -60px;
+                min-width: auto;
+                a {
+                    color: #000;
+                }
+            }
+        }     
+    }
+}

@@ -1,0 +1,52 @@
+.sidebar {
+    .info-block {
+        .title-bar {
+            background: #313131;
+            padding: 7px 0;
+            h5 {
+                color: #fff;
+                text-align: center;
+                font-size: 18px;
+                margin-bottom: 0;
+            }
+        }
+        .social-links {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+            margin: 20px 0;
+            li {
+                display: inline-block;
+                margin: 0 5px;
+                a {
+                    i {
+                        width: 36px;
+                        height: 36px;
+                        line-height: 34px;
+                        border: 1px solid #E0E0E0;
+                        background: none;
+                        color: #313131;
+                        text-align: center;
+                        border-radius: 50%;
+                        transition: all .3s ease-in-out;
+                    }
+                    &:hover {
+                        i {
+                            background: #313131;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+        .img-gallery {
+            margin: 10px -5px;
+            .img-col {
+                padding: 5px;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
