@@ -27,7 +27,7 @@ mongoose.connection.on("error", (err) => {
 });
 
 // port number
-const PORT = 3000;
+const PORT = process.env.PORT || 8080;
 
 // body parser middleware
 app.use(bodyParser.json());
