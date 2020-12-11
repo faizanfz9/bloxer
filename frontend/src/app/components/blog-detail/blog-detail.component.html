@@ -1,1 +1,17 @@
-<p>blog-detail works!</p>
+<app-header></app-header>
+<section class="blog-detail">
+    <div class="container">
+        <div *ngIf="isFetched">
+            <span class="date">{{ blog.publishedAt }}</span>
+            <h2>{{ blog.title }}</h2>
+            <div class="img-wrap">
+                <img [src]="blog.imageUrl" alt="blog.title">
+            </div>
+            <div class="body" [innerHtml]="blog.body"></div>
+        </div>
+        <div class="spinner-border" role="status" *ngIf="!isFetched">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

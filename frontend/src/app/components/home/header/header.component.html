@@ -3,18 +3,38 @@
         <div class="inner-wrap">
             <div class="logo-row">
                 <h2 class="text-center">
-                    <a href="#">
+                    <a href="#" routerLink="/">
                         <img src="../../../../assets/logo.png" alt="logo">
                     </a>
                 </h2>
             </div>
             <nav class="nav-menu">
                 <ul>
+                    <li>
+                        <a href="#">All</a>
+                    </li>
                     <li *ngFor="let cat of blogsCat">
-                        <a (click)="catChanged(cat)" [ngClass]="{'active': currentCat === cat }">{{ cat }}</a>
+                        <a (click)="catChanged(cat)" [ngClass]="{'active': currentCat === cat }">{{ cat | titlecase}}</a>
                     </li>
                 </ul>
             </nav>
+            <ul class="auth-links">
+                <li *ngIf="isLoggedIn">
+                    <a href="#" routerLink="/admin/dashboard">
+                        <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
+                    </a>
+                </li>
+                <li *ngIf="isLoggedIn">
+                    <a style="cursor: pointer;" (click)="onLogOut()">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i> Logout
+                    </a>
+                </li>
+                <li *ngIf="!isLoggedIn">
+                    <a href="#" routerLink="/user/login">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i> Login
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </header>

@@ -7,10 +7,14 @@ const mongoose = require("mongoose");
 const config = require("./config/db");
 
 const users = require("./routes/users");
+const blogs = require("./routes/blogs");
 const app = express();
 
 // connect to database
-mongoose.connect(config.database);
+mongoose.connect(config.database, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+});
 
 // on connection
 mongoose.connection.on("connected", () => {
@@ -28,10 +32,17 @@ const PORT = 3000;
 // body parser middleware
 app.use(bodyParser.json());
 
+// passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+require("./config/passport")(passport)
+
 // cors middleware
 app.use(cors());
 
 app.use("/users", users);
+app.use("/blogs", blogs);
 
 // index route
 app.get("/", function(req, res){

@@ -1,1 +1,78 @@
-<p>add-blog works!</p>
+<section class="main">
+    <div class="container-fluid">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#" routerLink="/admin/dashboard">Dashboard</a></li>
+              <li class="breadcrumb-item"><a href="#" routerLink="/admin/blogs">Blogs</a></li>
+              <li class="breadcrumb-item">Add Blog</li>
+            </ol>
+        </nav>
+        <div class="table-wrap">
+            <div class="form-wrap">
+                <h3>Add Blog</h3>
+                <div class="alert alert-success" role="alert" *ngIf="success == true">
+                    {{ alert }}
+                </div>
+                <form (submit)="onAddBlog(addBlog)" #addBlog="ngForm">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" 
+                        class="form-control" 
+                        placeholder="Enter Title"
+                        name="title"
+                        ngModel
+                        required>
+                    </div>
+                    <div class="form-group">
+                        <label>Body</label>
+                        <textarea froalaEditor class="form-control editor" 
+                        id="" cols="30" rows="5" 
+                        placeholder="Enter Description"
+                        name="body"
+                        ngModel
+                        required>
+                        </textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Image Url</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        placeholder="Enter Image Url"
+                        name="imageUrl"
+                        ngModel
+                        required>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select class="form-control" name="category" ngModel="Select" required>
+                          <option value="Select">--Select Category--</option>
+                          <option [value]="cat" *ngFor="let cat of blogsCat">{{ cat | titlecase }}</option>
+                        </select>
+                      </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input 
+                        type="date" 
+                        class="form-control" 
+                        id="date" 
+                        name="date"
+                        ngModel
+                        required>
+                    </div> 
+                    <div class="form-group">
+                        <label>Author</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        placeholder="Enter Author"
+                        name="author"
+                        ngModel
+                        required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+</section>

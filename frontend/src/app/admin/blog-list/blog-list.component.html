@@ -1,4 +1,4 @@
-<section class="main">
+<section class="main" id="top">
   <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#" routerLink="/admin/dashboard">Dashboard</a></li>
@@ -8,7 +8,16 @@
   <div class="table-wrap">
     <h5>Blogs</h5>
     <button type="button" routerLink="/admin/add-blog" class="btn btn-primary">Add New Blog <i class="fa fa-plus" aria-hidden="true"></i></button>
-    <table class="table table-bordered">
+    <div class="alert alert-success" role="alert" *ngIf="alert.length > 0">
+      {{ alert }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close" appDismissAlert>
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div *ngIf="blogs.length < 1">
+      <h4>No Blogs found!</h4>
+    </div>
+    <table class="table table-bordered" *ngIf="blogs.length > 1">
       <thead>
         <tr>
           <th scope="col">Image</th>
@@ -16,27 +25,35 @@
           <th scope="col">Category</th>
           <th scope="col">Publish Date</th>
           <th scope="col">Status</th>
+          <th scope="col">View</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let blog of blogs">
           <td>
-            <img [src]="blog.urlToImage" [alt]="blog.title">
+            <img [src]="blog.imageUrl" [alt]="blog.title">
           </td>
           <td>{{ blog.title }}</td>
-          <td>{{ blog.category }}</td>
+          <td>{{ blog.category | titlecase }}</td>
           <td>{{ blog.publishedAt }}</td>
-          <td>{{ blog.visible ? 'Active':'Inactive' }}</td>
+          <td>
+            <span class="badge" [ngClass]="{ 'badge-primary': blog.visible == true, 'badge-secondary': blog.visible == false }">{{ blog.visible ? 'Active':'Inactive' }}</span>
+          </td>
+          <td align="center">
+            <a href="#" [routerLink]="['/blogs/' + blog._id]">
+              <i class="fa fa-eye" aria-hidden="true"></i>
+            </a>
+          </td>
           <td>
             <div class="btn-group">
               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" appMenuToggle>
                 Action
               </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Edit</a>
-                <a class="dropdown-item" href="#">Inactive</a>
-                <a class="dropdown-item" href="#">Delete</a>
+              <div class="dropdown-menu" #dropdown>
+                <a class="dropdown-item" href="#" [routerLink]="['/admin/edit-blog/'+ blog._id]">Edit</a>
+                <a class="dropdown-item" href="#" (click)="changeVisibility($event, blog, blog._id)">{{ blog.visible ? 'Unpublish':'Publish' }}</a>
+                <a class="dropdown-item" style="cursor: pointer;" (click)="onDelete(blog._id)">Delete</a>
               </div>
             </div>
           </td>

@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import 'froala-editor/js/plugins.pkgd.min.js';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +27,11 @@ import { DraftsComponent } from './admin/drafts/drafts.component';
 import { BlogDetailComponent } from './components/blog-detail/blog-detail.component';
 import { MenuToggleDirective } from './directives/menu-toggle.directive';
 import { AddBlogComponent } from './admin/add-blog/add-blog.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './auth/login/login.component';
+import { EditBlogComponent } from './admin/edit-blog/edit-blog.component';
+import { DismissAlertDirective } from './directives/dismiss-alert.directive';
+import { CatBlogsComponent } from './admin/blog-cat/cat-blogs/cat-blogs.component';
 
 @NgModule({
   declarations: [
@@ -44,13 +53,22 @@ import { AddBlogComponent } from './admin/add-blog/add-blog.component';
     DraftsComponent,
     BlogDetailComponent,
     MenuToggleDirective,
-    AddBlogComponent
+    AddBlogComponent,
+    RegisterComponent,
+    LoginComponent,
+    EditBlogComponent,
+    DismissAlertDirective,
+    CatBlogsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    FormsModule,
+    ScrollToModule.forRoot(),
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

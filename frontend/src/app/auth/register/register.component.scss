@@ -1,0 +1,30 @@
+.auth-form {
+    .inner-wrap {
+        max-width: 400px;
+        margin: 0 auto;
+        .logo-wrap {
+            margin: 100px 0 40px;
+            text-align: center;
+            img {
+                max-width: 200px;
+            }
+        }
+        .form-wrap {
+            width: 100%;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+            h3 {
+                text-align: center;
+                margin: 10px 0 10px;
+            }
+            p {
+                margin-top: 15px;
+            }
+        }
+        .alert-block {
+            p {
+                margin-top: 10px;
+            }
+        }
+    }
+}

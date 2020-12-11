@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Blog } from 'src/app/models/blog';
 import { BlogService } from 'src/app/shared/blog.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { BlogService } from 'src/app/shared/blog.service';
   styleUrls: ['./banner.component.scss']
 })
 export class BannerComponent implements OnInit {
-  @Input() featuredBlogs = [];
+  @Input() featuredBlogs: any;
   @Input() currentCat: any;
 
   constructor() { }

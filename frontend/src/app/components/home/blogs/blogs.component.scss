@@ -3,6 +3,7 @@
         margin-bottom: 30px;
         .img-wrap {
             position: relative;
+            height: 200px;
             &::before {
                 position: absolute;
                 content: "";
@@ -14,6 +15,8 @@
             }
             img {
                 width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
             .blog-info {
                 position: absolute;
@@ -43,6 +46,11 @@
         }
         p {
             margin-bottom: 7px;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            max-height: 120px;
         }
         a {
             color: rgba(17, 147, 216);

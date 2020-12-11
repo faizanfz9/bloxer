@@ -1,29 +1,57 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-interface Blog {
-  status: string,
-  articles: any
-}
+import { DataResponse } from "../models/dataResponse";
+import { Blog } from '../models/blog';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlogService {
-  blogs_api = "http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=23b7f8f68253433a8d1d58ceb1b67522";
+  blogsCat = ["travel", "fashion", "tech", "photography"];
 
   constructor(private http: HttpClient) { }
 
-  getAllBlogs() {
-    return this.http.get<Blog>(this.blogs_api);
+  filterActiveBlogs() {
+    return (res: DataResponse) => {
+      const blogs = res.data;
+      return blogs.filter((blog: Blog) => blog.visible == true);
+    }
   }
 
-  getBlogsByCat(cat: string) {
-    if(cat == "home") {
-      this.blogs_api = "http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=23b7f8f68253433a8d1d58ceb1b67522";
-    }else {
-      this.blogs_api = "http://newsapi.org/v2/everything?q=" + cat + "&apiKey=23b7f8f68253433a8d1d58ceb1b67522";
+  filterInActiveBlogs() {
+    return (res: DataResponse) => {
+      const blogs = res.data;
+      return blogs.filter((blog: Blog) => blog.visible == false);
     }
-    return this.getAllBlogs();
+  }
+  
+  // fetch all Blogs
+  getAllBlogs() {
+    return this.http.get<DataResponse>('http://localhost:3000/blogs/');
+  }
+
+  // get blogs by cat
+  getBlogsByCat(cat: string) {
+    return this.http.get<DataResponse>('http://localhost:3000/blogs/?cat='+cat);
+  }
+
+  // fetch blog by id
+  getBlogById(id: string) {
+    return this.http.get<DataResponse>("http://localhost:3000/blogs/"+ id);
+  }
+
+  // add new blog
+  addBlog(newBlog: any) {
+    return this.http.post<DataResponse>("http://localhost:3000/blogs/add", newBlog);
+  }
+
+  // update blog
+  updateBlog(id: string, blog: any) {
+    return this.http.patch<DataResponse>("http://localhost:3000/blogs/update/"+ id, blog);
+  }
+
+  // delete blog
+  deleteBlog(id: string) {
+    return this.http.delete<DataResponse>("http://localhost:3000/blogs/delete/"+ id);
   }
 }

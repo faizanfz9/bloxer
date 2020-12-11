@@ -1,1 +1,48 @@
-<p>drafts works!</p>
+<section class="main" id="top">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#" routerLink="/admin/dashboard">Dashboard</a></li>
+          <li class="breadcrumb-item">Drafts</li>
+        </ol>
+    </nav>
+    <div class="table-wrap">
+      <h5>Drafts</h5>
+      <div *ngIf="blogs.length < 1">
+        <h4>No InActive Blogs found!</h4>
+      </div>
+      <table class="table table-bordered" *ngIf="blogs.length > 0">
+        <thead>
+          <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Title</th>
+            <th scope="col">Category</th>
+            <th scope="col">Publish Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">View</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let blog of blogs">
+            <td>
+              <img [src]="blog.imageUrl" [alt]="blog.title">
+            </td>
+            <td>{{ blog.title }}</td>
+            <td>{{ blog.category | titlecase }}</td>
+            <td>{{ blog.publishedAt }}</td>
+            <td>
+              <span class="badge badge-secondary">Inactive</span>
+            </td>
+            <td align="center">
+              <a href="#" [routerLink]="['/blogs/' + blog._id]">
+                <i class="fa fa-eye" aria-hidden="true"></i>
+              </a>
+            </td>
+            <td>
+              <button type="button" class="btn btn-primary" (click)="changeVisibility(blog, blog._id)">Publish</button>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+    </div>
+  </section>
