@@ -45,8 +45,8 @@ require("./config/passport")(passport)
 // cors middleware
 app.use(cors());
 
-app.use("/users", users);
-app.use("/blogs", blogs);
+app.use("/api/users", users);
+app.use("/api/blogs", blogs);
 
 // index route
 app.get("/", function(req, res){
