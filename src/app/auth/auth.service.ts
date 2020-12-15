@@ -22,11 +22,11 @@ export class AuthService {
   }
 
   register(user: any) {
-    return this.http.post<AuthResponse>("http://localhost:3000/users/register", user, {'headers': headers});
+    return this.http.post<AuthResponse>("api/users/register", user, {'headers': headers});
   }
 
   logIn(user: any) {
-    return this.http.post<AuthResponse>("http://localhost:3000/users/authenticate", user, {'headers': headers});
+    return this.http.post<AuthResponse>("api/users/authenticate", user, {'headers': headers});
   }
 
   storeUserData(token: string, user: object) {
