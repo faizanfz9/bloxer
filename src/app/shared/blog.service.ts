@@ -27,31 +27,31 @@ export class BlogService {
   
   // fetch all Blogs
   getAllBlogs() {
-    return this.http.get<DataResponse>('blogs/');
+    return this.http.get<DataResponse>('api/blogs/');
   }
 
   // get blogs by cat
   getBlogsByCat(cat: string) {
-    return this.http.get<DataResponse>('blogs/?cat='+cat);
+    return this.http.get<DataResponse>('api/blogs/?cat='+cat);
   }
 
   // fetch blog by id
   getBlogById(id: string) {
-    return this.http.get<DataResponse>("blogs/"+ id);
+    return this.http.get<DataResponse>("api/blogs/"+ id);
   }
 
   // add new blog
   addBlog(newBlog: any) {
-    return this.http.post<DataResponse>("blogs/add", newBlog);
+    return this.http.post<DataResponse>("api/blogs/add", newBlog);
   }
 
   // update blog
   updateBlog(id: string, blog: any) {
-    return this.http.patch<DataResponse>("update/"+ id, blog);
+    return this.http.patch<DataResponse>("api/update/"+ id, blog);
   }
 
   // delete blog
   deleteBlog(id: string) {
-    return this.http.delete<DataResponse>("blogs/delete/"+ id);
+    return this.http.delete<DataResponse>("api/blogs/delete/"+ id);
   }
 }
