@@ -27,7 +27,7 @@ mongoose.connection.on("error", (err) => {
 });
 
 // port number
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.MONGODB_URI || 8080;
 
 // Create link to Angular build directory
 var distDir = __dirname + "/dist/";
