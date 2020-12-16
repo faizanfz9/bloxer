@@ -70,7 +70,7 @@
                         [(ngModel)]="blog.author"
                         required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="updateBlog.invalid">Save</button>
                   </form>
             </div>
         </div>

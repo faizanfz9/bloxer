@@ -24,7 +24,7 @@ export class BlogService {
       return blogs.filter((blog: Blog) => blog.visible == false);
     }
   }
-  
+
   
   // fetch all Blogs
   getAllBlogs() {

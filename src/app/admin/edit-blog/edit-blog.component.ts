@@ -9,7 +9,7 @@ import { BlogService } from 'src/app/shared/blog.service';
   styleUrls: ['./edit-blog.component.sass']
 })
 export class EditBlogComponent implements OnInit {
-  blog: any;
+  blog: any = {};
   id: any;
   alert = "";
   success = false;
